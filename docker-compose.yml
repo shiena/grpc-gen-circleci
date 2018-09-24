@@ -1,0 +1,18 @@
+version: "3"
+services:
+    lint:
+        image: shienajp/protoc-all:v1.15.1_0
+        volumes:
+            - .:/defs
+        entrypoint: "sh -c"
+        command: '"protoc -I/usr/local/include -I. --lint_out=. ./protos/*.proto"'
+    go:
+        image: shienajp/protoc-all:v1.15.1_0
+        volumes:
+            - .:/defs
+        command: "-d ./protos -o ./pb-go --with-docs markdown,readme.md --with-gateway -l go"
+    csharp:
+        image: shienajp/protoc-all:v1.15.1_0
+        volumes:
+            - .:/defs
+        command: "-d ./protos -o ./pb-csharp --with-docs markdown,readme.md -l csharp"
