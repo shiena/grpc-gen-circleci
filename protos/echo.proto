@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 service EchoService {
 	rpc Echo (EchoRequest) returns (EchoReply) {
 	};
@@ -11,4 +13,5 @@ message EchoRequest {
 
 message EchoReply {
 	string ret = 1;
+	google.protobuf.Timestamp time = 2;
 }
