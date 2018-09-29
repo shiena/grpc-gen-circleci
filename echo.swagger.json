@@ -21,6 +21,10 @@
       "properties": {
         "ret": {
           "type": "string"
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time"
         }
       }
     }

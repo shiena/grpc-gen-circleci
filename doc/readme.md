@@ -32,6 +32,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ret | [string](#string) |  |  |
+| time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
 
 
 
