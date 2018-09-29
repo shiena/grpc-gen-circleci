@@ -22,14 +22,16 @@ public static partial class EchoReflection {
   static EchoReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "CgplY2hvLnByb3RvIhoKC0VjaG9SZXF1ZXN0EgsKA3NheRgBIAEoCSIYCglF",
-          "Y2hvUmVwbHkSCwoDcmV0GAEgASgJMjEKC0VjaG9TZXJ2aWNlEiIKBEVjaG8S",
-          "DC5FY2hvUmVxdWVzdBoKLkVjaG9SZXBseSIAYgZwcm90bzM="));
+          "CgplY2hvLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3Rv",
+          "IhoKC0VjaG9SZXF1ZXN0EgsKA3NheRgBIAEoCSJCCglFY2hvUmVwbHkSCwoD",
+          "cmV0GAEgASgJEigKBHRpbWUYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+          "ZXN0YW1wMjEKC0VjaG9TZXJ2aWNlEiIKBEVjaG8SDC5FY2hvUmVxdWVzdBoK",
+          "LkVjaG9SZXBseSIAYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-        new pbr::FileDescriptor[] { },
+        new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::EchoRequest), global::EchoRequest.Parser, new[]{ "Say" }, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::EchoReply), global::EchoReply.Parser, new[]{ "Ret" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::EchoReply), global::EchoReply.Parser, new[]{ "Ret", "Time" }, null, null, null)
         }));
   }
   #endregion
@@ -191,6 +193,7 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public EchoReply(EchoReply other) : this() {
     ret_ = other.ret_;
+    time_ = other.time_ != null ? other.time_.Clone() : null;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -210,6 +213,17 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
     }
   }
 
+  /// <summary>Field number for the "time" field.</summary>
+  public const int TimeFieldNumber = 2;
+  private global::Google.Protobuf.WellKnownTypes.Timestamp time_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::Google.Protobuf.WellKnownTypes.Timestamp Time {
+    get { return time_; }
+    set {
+      time_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as EchoReply);
@@ -224,6 +238,7 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
       return true;
     }
     if (Ret != other.Ret) return false;
+    if (!object.Equals(Time, other.Time)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -231,6 +246,7 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
   public override int GetHashCode() {
     int hash = 1;
     if (Ret.Length != 0) hash ^= Ret.GetHashCode();
+    if (time_ != null) hash ^= Time.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -248,6 +264,10 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
       output.WriteRawTag(10);
       output.WriteString(Ret);
     }
+    if (time_ != null) {
+      output.WriteRawTag(18);
+      output.WriteMessage(Time);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -258,6 +278,9 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
     int size = 0;
     if (Ret.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Ret);
+    }
+    if (time_ != null) {
+      size += 1 + pb::CodedOutputStream.ComputeMessageSize(Time);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -273,6 +296,12 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
     if (other.Ret.Length != 0) {
       Ret = other.Ret;
     }
+    if (other.time_ != null) {
+      if (time_ == null) {
+        time_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+      }
+      Time.MergeFrom(other.Time);
+    }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
 
@@ -286,6 +315,13 @@ public sealed partial class EchoReply : pb::IMessage<EchoReply> {
           break;
         case 10: {
           Ret = input.ReadString();
+          break;
+        }
+        case 18: {
+          if (time_ == null) {
+            time_ = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+          }
+          input.ReadMessage(time_);
           break;
         }
       }
