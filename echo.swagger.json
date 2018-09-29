@@ -14,7 +14,34 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/v1/echo": {
+      "post": {
+        "operationId": "Echo",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EchoReply"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EchoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "EchoService"
+        ]
+      }
+    }
+  },
   "definitions": {
     "EchoReply": {
       "type": "object",
@@ -25,6 +52,14 @@
         "time": {
           "type": "string",
           "format": "date-time"
+        }
+      }
+    },
+    "EchoRequest": {
+      "type": "object",
+      "properties": {
+        "say": {
+          "type": "string"
         }
       }
     }
