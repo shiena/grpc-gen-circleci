@@ -23,12 +23,13 @@ public static partial class EchoReflection {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
           "CgplY2hvLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3Rv",
-          "IhoKC0VjaG9SZXF1ZXN0EgsKA3NheRgBIAEoCSJCCglFY2hvUmVwbHkSCwoD",
-          "cmV0GAEgASgJEigKBHRpbWUYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-          "ZXN0YW1wMjEKC0VjaG9TZXJ2aWNlEiIKBEVjaG8SDC5FY2hvUmVxdWVzdBoK",
-          "LkVjaG9SZXBseSIAYgZwcm90bzM="));
+          "Ghxnb29nbGUvYXBpL2Fubm90YXRpb25zLnByb3RvIhoKC0VjaG9SZXF1ZXN0",
+          "EgsKA3NheRgBIAEoCSJCCglFY2hvUmVwbHkSCwoDcmV0GAEgASgJEigKBHRp",
+          "bWUYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wMkQKC0VjaG9T",
+          "ZXJ2aWNlEjUKBEVjaG8SDC5FY2hvUmVxdWVzdBoKLkVjaG9SZXBseSITgtPk",
+          "kwINIggvdjEvZWNobzoBKmIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-        new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+        new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Api.AnnotationsReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::EchoRequest), global::EchoRequest.Parser, new[]{ "Say" }, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::EchoReply), global::EchoReply.Parser, new[]{ "Ret", "Time" }, null, null, null)
