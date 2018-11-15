@@ -66,8 +66,9 @@ jobs:
             cp -a pb-go/* ../go-src/
             git -C ../go-src add -A
             git -C ../go-src status
-            git -C ../go-src commit -m "AUTO GENERATED [ci skip]"
-            if [ $? -eq 0 ]; then
+            result=0
+            git -C ../go-src commit -m "AUTO GENERATED [ci skip]" || result=$?
+            if [ $result -eq 0 ]; then
               git -C ../go-src push upstream generated/go 2> /dev/null
             fi
       - run:
@@ -88,8 +89,9 @@ jobs:
             cp -a pb-csharp/* ../csharp-src/
             git -C ../csharp-src add -A
             git -C ../csharp-src status
-            git -C ../csharp-src commit -m "AUTO GENERATED [ci skip]"
-            if [ $? -eq 0 ]; then
+            result=0
+            git -C ../csharp-src commit -m "AUTO GENERATED [ci skip]" || result=$?
+            if [ $result -eq 0 ]; then
               git -C ../csharp-src push upstream generated/csharp 2> /dev/null
             fi
 
